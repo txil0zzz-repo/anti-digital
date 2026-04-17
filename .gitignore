@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# App config local
+.antigravity/
+.claude/
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
