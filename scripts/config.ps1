@@ -41,12 +41,12 @@ $POSTER_VARIANTS = @{
 # ── Retail Prices (USD cents) ────────────────────────────────
 # These are the prices YOUR CUSTOMERS pay on Etsy
 $PRICES = @{
-    TShirt   = 3200  # $32.00 (~€29) — ~35% margin after Printify + Etsy fees
-    Mug11oz  = 1900  # $19.00 (~€17)
-    Mug15oz  = 2200  # $22.00 (~€20)
-    PosterA4 = 2200  # $22.00 (~€20)
-    PosterA3 = 2800  # $28.00 (~€26)
-    PosterA2 = 3800  # $38.00 (~€35)
+    TShirt   = 3400  # $34.00 — Added safety for Free plan + Ads
+    Mug11oz  = 2100  # $21.00
+    Mug15oz  = 2400  # $24.00
+    PosterA4 = 2600  # $26.00
+    PosterA3 = 3200  # $32.00
+    PosterA2 = 4400  # $44.00
 }
 
 # ── Default Tags ─────────────────────────────────────────────

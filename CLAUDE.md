@@ -24,15 +24,18 @@ PRINTIFY_API_KEY=<token>
 
 ### POD Workflow
 
-```powershell
-# Upload image → create product → publish
-.\scripts\upload_image.ps1 -ImagePath "designs\cottagecore\posters\my_design.png"
-.\scripts\create_product.ps1 -ImageId "<id>" -Title "My Design" -Description "..." -Type poster
-.\scripts\publish_product.ps1 -ProductId "<id>"
+**MANDATORY:** Always run validation before any production task.
+## 🌿 Branding Strategy: The Botanical Archivist
+- **Core Aesthetic:** Premium Vintage Herbarium (Cottagecore Premium).
+- **Colors:** Forest Green (#1B3022), Cream (#F5F5DC), Sage (#8A9A5B).
+- **Pricing:** Protected margins ($26–$44 for posters) to absorb Etsy/Ads fees.
+- **Copy:** Scholarly, archival, and scientific tone.
 
-# Batch upload full folder
-.\scripts\batch_upload.ps1 -FolderPath "designs\cottagecore\posters" -Type poster -AutoPublish
-```
+## 📦 POD Workflow (Printify-to-Etsy)
+1. **Design:** Generate/Collect high-res botanical art.
+2. **Validate:** Run `scripts/validate_product.ps1` before upload.
+3. **Upload:** Use `scripts/batch_upload.ps1` (with automatic "Archivist" formatting).
+4. **Rebrand:** Run `scripts/rebrand_catalog.ps1` if store-wide copy updates are needed.
 
 ### Product Config
 

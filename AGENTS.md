@@ -77,6 +77,7 @@ anti DIGITAL/
 │   └── adhd/                     # planners ADHD PDF
 ├── scripts/                      # automações PowerShell
 │   ├── config.ps1                # IDs, preços, tags — editar aqui
+│   ├── validate_product.ps1      # Audita regras antes de publicar
 │   ├── upload_image.ps1
 │   ├── create_product.ps1
 │   ├── publish_product.ps1
@@ -91,6 +92,7 @@ anti DIGITAL/
 ## Objectivo
 
 Automatizar via API REST Printify:
-1. Upload de imagens de design para a biblioteca Printify
-2. Criação de produtos com as variantes correctas (fornecedores EU)
-3. Publicação directa no Etsy (ByTheFern)
+1. Validação de design e preço contra as regras de negócio
+2. Upload de imagens de design para a biblioteca Printify
+3. Criação de produtos com as variantes correctas (fornecedores EU)
+4. Publicação directa no Etsy (ByTheFern)
