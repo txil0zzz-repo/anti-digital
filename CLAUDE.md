@@ -1,80 +1,29 @@
-# CLAUDE.md
+# CLAUDE.md — BY THE FERN (SOPs)
 
-This file provides guidance to Claude Code (claude.ai/code) when working in this repository.
+This file provides strict guidance and **Standard Operating Procedures (SOPs)** for all AI Agents operating within the ByTheFern workspace (anti DIGITAL folder).
 
-## Project Overview
+## 1. Brand Identity & Voice
+- **Niche Focus**: Botanical Archivist, Cottagecore lifestyle.
+- **Key Motifs**: Ferns, vintage botanical illustrations, parchment textures, cozy atmosphere.
+- **Brand Voice**: Sophisticated, timeless, slightly nostalgic (e.g., "curated for the archivist's soul").
 
-**anti DIGITAL** covers all TEZ. revenue-generating products:
-- **ByTheFern** — Print on Demand Etsy store (Cottagecore + Botanical)
-- **Digital downloads** — Etsy planners, ADHD notebooks, budgeting sheets
+## 2. Standard Operating Procedures (Walkthroughs)
 
-## ByTheFern — POD
+### 2.1. Product Ideation & Visual Alchemy (ComfyUI)
+Generate botanical and archival visuals using the centralized ComfyUI engine.
+- **Boot**: `comfy` (from powershell).
+- **Aesthetic**: `botanical illustration, pressed flowers, vintage paper texture, archival ink, soft natural light, muted earth tones, 19th century nature study`.
+- **Primary Model**: [Space for Suggestion]
+- **Execution**: Provide the user with an SDXL/Flux prompt based on the aesthetic above. The user runs `comfy` and applies the prompt.
 
-- **Etsy store**: ByTheFern
-- **Printify Shop ID**: `27044983`
-- **Printify API base**: `https://api.printify.com/v1`
-- **Docs**: https://developers.printify.com
+### 2.2. Printify & Etsy Publishing Pipeline
+1. **Merchant Engine Logic**: All uploads go through Printify API.
+2. **SEO Naming Formula**: Use strict Etsy SEO rules for variables: `[Primary Keyword] | [Secondary Concept] | [Aesthetic Type] - [Core Product]`. Example: `Vintage Fern Illustration | Botanical Print | Cottagecore Wall Art - Matte Canvas`.
+3. **Fulfillment Validation**: Ensure the Printify script selects EU print providers by default unless overridden by the user.
 
-### Authentication
+## 3. Strict Operational Limitations
+1. Assets go only to `../_assets/anti DIGITAL`. Never poll or push to Solène or global HQ folders.
+2. Maintain standard Printify blueprint IDs in configs. DO NOT guess blueprint IDs.
 
-`.env` must contain:
-```
-PRINTIFY_API_KEY=<token>
-```
-
-### POD Workflow
-
-**MANDATORY:** Always run validation before any production task.
-## 🌿 Branding Strategy: The Botanical Archivist
-- **Core Aesthetic:** Premium Vintage Herbarium (Cottagecore Premium).
-- **Colors:** Forest Green (#1B3022), Cream (#F5F5DC), Sage (#8A9A5B).
-- **Pricing:** Protected margins ($26–$44 for posters) to absorb Etsy/Ads fees.
-- **Copy:** Scholarly, archival, and scientific tone.
-
-## 📦 POD Workflow (Printify-to-Etsy)
-1. **Design:** Generate/Collect high-res botanical art.
-2. **Validate:** Run `scripts/validate_product.ps1` before upload.
-3. **Upload:** Use `scripts/batch_upload.ps1` (with automatic "Archivist" formatting).
-4. **Rebrand:** Run `scripts/rebrand_catalog.ps1` if store-wide copy updates are needed.
-
-### Product Config
-
-All IDs and pricing in `scripts/config.ps1`.
-
-| Product | Blueprint | Provider | Notes |
-|---|---|---|---|
-| T-Shirt (Bella+Canvas 3001) | 5 | 99 (Printify Choice) | 6 colors x S-3XL |
-| Mug (EU Ceramic) | 441 | 30 (OPT OnDemand NL) | 11oz, 15oz |
-| Poster (EU Matte) | 443 | 30 (OPT OnDemand NL) | A4, A3, A2 |
-
-Always prefer EU fulfillment providers.
-
-### ComfyUI — Design Generation
-
-```bash
-cd "C:/Users/txds/OneDrive/Ambiente de Trabalho/TEZ/anti TEZ/ComfyUI"
-py main.py --lowvram
-```
-Open: `http://127.0.0.1:8188` — Model: DreamShaper v8, 768x1024, steps 30
-
-## Digital Downloads
-
-- **Tool**: Canva → export PDF
-- **Save to**: `designs/planners/`, `designs/budgeting/`, `designs/adhd/`
-- **Upload**: manually to Etsy as digital download
-- **Price range**: 3-15 EUR
-- **No Printify needed** — Etsy handles delivery automatically
-
-## Folder Structure
-
-```
-anti DIGITAL/
-├── designs/
-│   ├── cottagecore/    — POD designs (posters, mugs, tshirts)
-│   ├── planners/       — digital planner PDFs
-│   ├── budgeting/      — budget tracker PDFs
-│   └── adhd/           — ADHD planner PDFs
-├── scripts/            — Printify automation (PowerShell)
-├── listings/           — Etsy titles, descriptions, tags
-└── templates/          — exported PDFs ready for upload
-```
+## 4. AI Memory Protocol (Pinecone)
+Whenever a significant script, brand styling, or Etsy SEO pattern is refined for ByTheFern, you MUST AUTOMATICALLY upsert a concise technical summary to the Pinecone MCP index (`ai-agency-brain`) under namespace `bythefern-operations`.
